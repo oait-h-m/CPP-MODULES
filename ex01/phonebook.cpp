@@ -9,7 +9,8 @@ PhoneBook::PhoneBook()
 void	PhoneBook::NewContact()
 {
 	std::string	input;
-	
+	if (index >= 8)
+		index = 0;
 	while(true)
 	{
 		std::cout << "Enter your first name: ";
@@ -141,6 +142,8 @@ void DisplayContacts(Contact contacts[], int MaxSize)
     
 	PrintSeparator();
     
+	if (MaxSize > 8)
+		MaxSize = 8;
 	for (int i = 0; i < MaxSize; i++)
 	{
 		std::cout << "|" << std::setw(10) << i
