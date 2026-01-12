@@ -2,7 +2,8 @@
 
 void	Contact::SetFirstName(std::string input)
 {
-	this->FirstName = input;
+	
+	FirstName = input;
 }
 
 std::string	Contact::GetFirstName()
@@ -12,7 +13,7 @@ std::string	Contact::GetFirstName()
 
 void	Contact::SetLastName(std::string input)
 {
-	this->LastName = input;
+	LastName = input;
 }
 
 std::string	Contact::GetLastName()
@@ -22,7 +23,7 @@ std::string	Contact::GetLastName()
 
 void	Contact::SetNickname(std::string input)
 {
-	this->Nickname = input;
+	Nickname = input;
 }
 
 std::string	Contact::GetNickname()
@@ -32,7 +33,7 @@ std::string	Contact::GetNickname()
 
 void	Contact::SetDarkestSecret(std::string input)
 {
-	this->DarkestSecret = input;
+	DarkestSecret = input;
 }
 
 std::string	Contact::GetDarkestSecret()
@@ -42,7 +43,7 @@ std::string	Contact::GetDarkestSecret()
 
 void	Contact::SetPhoneNumber(std::string input)
 {
-	this->PhoneNumber = input;
+	PhoneNumber = input;
 }
 
 std::string	Contact::GetPhoneNumber()
