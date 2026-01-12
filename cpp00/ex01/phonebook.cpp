@@ -6,6 +6,37 @@ PhoneBook::PhoneBook()
 	index = 0;
 }
 
+
+bool	StrIsAlpha(std::string str)
+{
+	int	spaces = 0;
+	int	len = 0;
+	for (int i = 0; str[i]; i++)
+	{
+		if (!isalpha(str[i]) && str[i] != ' ')
+			return false;
+	}
+	for (int  i = 0; str[i]; i++)
+	{
+		if (isspace(str[i]))
+			spaces++;
+		len++;
+	}
+	if (spaces == len)
+		return false;
+	return true;
+}
+
+bool	StrIsDigits(std::string str)
+{
+	for (int i = 0; str[i]; i++)
+	{
+		if (!isdigit(str[i]))
+			return false;
+	}
+	return true;
+}
+
 void	PhoneBook::NewContact()
 {
 	std::string	input;
@@ -23,6 +54,10 @@ void	PhoneBook::NewContact()
 		if (input.empty())
 		{
 			std::cout << "Oops! You forgot to enter a first name. Try again:\n";
+		}
+		else if (StrIsAlpha(input) == false)
+		{
+			std::cout << "First name is required. Please enter a valid name.\n";
 		}
 		else
 		{
@@ -44,6 +79,10 @@ void	PhoneBook::NewContact()
 		{
 			std::cout << "Oops! You forgot to enter a last name. Try again:\n";
 		}
+		else if (StrIsAlpha(input) == false)
+		{
+			std::cout << "Last name is required. Please enter a valid name.\n";
+		}
 		else
 		{
 			contact[index].SetLastName(input);
@@ -64,6 +103,10 @@ void	PhoneBook::NewContact()
 		{
 			std::cout << "Oops! You forgot to enter a Nickname. Try again:\n";
 		}
+		else if (StrIsAlpha(input) == false)
+		{
+			std::cout << "Nickname is required. Please enter a valid name.\n";
+		}
 		else
 		{
 			contact[index].SetNickname(input);
@@ -82,6 +125,10 @@ void	PhoneBook::NewContact()
 		else if (input.empty())
 		{
 			std::cout << "Oops! You forgot to enter a Phone number. Try again:\n";
+		}
+		else if (StrIsDigits(input) == false)
+		{
+			std::cout << "Phone number is required. Please enter a valid number.\n";
 		}
 		else
 		{
@@ -102,6 +149,10 @@ void	PhoneBook::NewContact()
 		if (input.empty())
 		{
 			std::cout << "Oops! You forgot to enter a Dark Secret. Try again:\n";
+		}
+		else if (StrIsAlpha(input) == false)
+		{
+			std::cout << "Darkest secret is required. Please enter a valid darkest secret.\n";
 		}
 		else
 		{
