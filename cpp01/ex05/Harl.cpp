@@ -24,7 +24,7 @@ void	Harl::error(void)
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-int	Harl::complain(std::string level)
+void	Harl::complain(std::string level)
 {
 	std::string	levels[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
@@ -39,8 +39,7 @@ int	Harl::complain(std::string level)
 	{
 		if (levels[i] == level)
 		{
-			return i;
+			(this->*funcPtr[i])();
 		}
 	}
-	return -1;
 }
