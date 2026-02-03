@@ -1,9 +1,15 @@
+#include <iostream>
 #include "Fixed.hpp"
 
-int main()
+int main( void ) 
 {
-	Fixed	one(1);
-	Fixed res = one++;
-	std::cout << "one = " << one << std::endl;
-	std::cout << "res = " << res << std::endl;
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 }
