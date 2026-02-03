@@ -21,7 +21,8 @@ Fixed::Fixed(const Fixed &other)
 
 Fixed	&Fixed::operator=(const Fixed &other)
 {
-	this->fixedPoint = other.fixedPoint;
+	if (*this != other)
+		this->fixedPoint = other.fixedPoint;
 	return *this;
 }
 
@@ -72,14 +73,14 @@ Fixed	Fixed::operator-(const Fixed &other) const
 Fixed	Fixed::operator*(const Fixed &other) const
 {
 	Fixed res;
-	res.fixedPoint = this->fixedPoint * other.fixedPoint;
+	res.fixedPoint = (this->fixedPoint * other.fixedPoint) >> fractionalBits;
 	return res;
 }
 
 Fixed	Fixed::operator/(const Fixed &other) const
 {
 	Fixed res;
-	res.fixedPoint = this->fixedPoint / other.fixedPoint;
+	res.fixedPoint = (long)(this->fixedPoint << fractionalBits) / other.fixedPoint;
 	return res;
 }
 
@@ -133,4 +134,36 @@ std::ostream	&operator<<(std::ostream &out, const Fixed &fi)
 {
 	out << fi.toFloat();
 	return out;
+}
+
+Fixed	&Fixed::min(Fixed &n1, Fixed &n2)
+{
+	if (n1 < n2)
+		return n1;
+	else
+		return n2;
+}
+
+const Fixed	&Fixed::min(const Fixed &n1, const Fixed &n2)
+{
+	if (n1 < n2)
+		return n1;
+	else
+		return n2;
+}
+
+Fixed	&Fixed::max(Fixed &n1, Fixed &n2)
+{
+	if (n1 > n2)
+		return n1;
+	else
+		return n2;
+}
+
+const Fixed	&Fixed::max(const Fixed &n1, const Fixed &n2)
+{
+	if (n1 > n2)
+		return n1;
+	else
+		return n2;
 }
