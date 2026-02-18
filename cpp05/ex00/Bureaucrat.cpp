@@ -43,7 +43,11 @@ void    Bureaucrat::decrementGrade()
     ++grade;
 }
 
-std::ostream &Bureaucrat::operator<<(std::ostream &out, Bureaucrat)
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj)
+{
+    out << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    return out;
+}
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
