@@ -15,15 +15,6 @@ int main()
 		std::cout << "Failed to create TopSecret: " << e.what() << std::endl;
 	}
 
-	try
-	{
-		Form f3("EasyPaper", 75, 151);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << "Failed to create EasyPaper: " << e.what() << std::endl;
-	}
-
     Bureaucrat alice("Alice", 25);
     Bureaucrat bob("Bob", 100);
 
