@@ -1,8 +1,23 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-class public ScalarConverter
+#include <iostream>
+#include <cctype>
+#include <cstdlib>
+#include <cerrno>
+#include<limits>
+
+
+
+class ScalarConverter
 {
+    public:
+        static void convert(const std::string &literal);
+    private:
+        ScalarConverter();
+        ScalarConverter(const ScalarConverter &other);
+        ScalarConverter &operator=(const ScalarConverter &other);
+        ~ScalarConverter();
 };
 
 #endif
