@@ -3,6 +3,7 @@
 
 #include <stack>
 #include <iostream>
+#include <vector>
 
 template <typename T, typename Container = std::deque<T> >
 class MutantStack : std::stack<T, Container>
